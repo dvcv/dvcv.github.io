@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Google Translate Gem</title>
+    <title>Dice</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105406152-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -62,66 +62,36 @@
       <div class="row">
         <div class="col-sm-9">
           <div class="container">
-            <h1>Google Translate Gem</h1>
+            <h1>Turn images to dice with python</h1>
 
-<h2>Gem</h2>
+<p><image width='50' src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/multi-color-dice.png'/></p>
 
-<p><code>
-  gem &#39;google-cloud-translate&#39;
+<h1>Summary</h1>
+
+<p>I received a call from a family member asking me if I could recreate this thing they saw reddit where a guy used 20,000 dice to make an image. Heres the <a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'>link</a>. I knew someone had to have done this with code and I stumbled upon a medium post <a href='https://medium.com/analytics-vidhya/convert-an-image-into-one-comprised-of-dice-4a3cbcb241c5'>post</a> where Nathan Sheppard converted an image into dice. While it was a good start I needed to see how an image would look like with a given amount of dice. Also I wanted to add the ability to add different shades of dice and make it really easy to change these settings.</p>
+
+<p>The first problem was really interesting because it involved a bit of algebra to figure out. Heres the code.
+<code>
+<p># Get size  </p>
+<p>width, height = image.size</p>
+<p># Given a dice count</p>
+<p># Calculates the amount of dice to use for the width and height</p>
+<p>width<em>ratio = width/(width + height + 0.0)</p>
+<p>height</em>ratio = 1 - width<em>ratio</p>
+<p>new</em>width = ((4<em>height_ratio</em>width<em>ratio<em>dice)**(1/2.0))/(2.0</em>height</em>ratio)</p>
+<p>new<em>height = dice/(new</em>width + 0.0)</p>
+<p>#round to the nearest dice</p>
+<p>new<em>width = int(round(new</em>width))</p>
+<p>new<em>height = int(round(new</em>height))</p>
+<p>print(&#39;The number of dice to use for the width:{0}&#39;.format(new<em>width))</p>
+<p>print(&#39;The number of dice to use for the height:{0}&#39;.format(new</em>height))</p>
+<p>print(&#39;Total:{0}&#39;.format(new<em>width*new</em>height))</p>
+<p>return image.resize((new<em>width, new</em>height))</p>
 </code></p>
 
-<p>Like many other rails apps the first thing to do is to include the google translate gem.</p>
+<h1>Repository</h1>
 
-<h2>Bundle</h2>
-
-<p><code>
-  bundle
-</code></p>
-
-<p>Make sure to run bundle in terminal.</p>
-
-<h2>Create Module</h2>
-
-<p><code>
-  touch lib/google_translate.rb
-</code></p>
-
-<p>Add a new file to your lib folder.</p>
-
-<h2>The Code</h2>
-
-<p><code>
-  <p>
-  require &quot;google/cloud/translate </br>
-  module GoogleTranslate </br>
-  &nbsp;def self.translate<em>text(text, to = &#39;en&#39;) </br>
-  &nbsp;&nbsp;begin </br>
-  &nbsp;&nbsp;&nbsp;translate = Google::Cloud::Translate.new project: PROJECT</em>ID, key: API_KEY </br>
-  &nbsp;&nbsp;&nbsp;translation = translate.translate text, to: to </br>
-  &nbsp;&nbsp;&nbsp;return translation.text </br>
-  &nbsp;&nbsp;rescue Google::Cloud::Error =&gt; e </br>
-  &nbsp;&nbsp;&nbsp;puts e.message </br>
-  &nbsp;&nbsp;end </br>
-  &nbsp;&nbsp;puts &quot;Text was not translated correctly. Returning original text&quot; </br>
-  &nbsp;&nbsp;text</br>
-  &nbsp;end </br>
-  end </br>
-  </p>
-</code></p>
-
-<p>Add the following to your new file. You will need to replace PROJECT_ID and API_KEY with your very own authentication.</p>
-
-<h2>The Output</h2>
-
-<p><code>
-  <p>
-    rails c</br>
-    [1] pry(main)&gt; GoogleTranslate.translate_text(&#39;hola&#39;)</br>
-    =&gt; &quot;Hello&quot;</br>
-  </p>
-</code></p>
-
-<p>&#39;hola&#39; was correctly translated to &#39;hello&#39;.</p>
+<p>Check out the <a href='https://github.com/dvcv/dice-image-generator'>repo</a>.</p>
 
 <p>-dvcv</p>
 

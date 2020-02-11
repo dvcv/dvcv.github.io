@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Google Translate Gem</title>
+    <title>David Chavez</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105406152-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -62,68 +62,13 @@
       <div class="row">
         <div class="col-sm-9">
           <div class="container">
-            <h1>Google Translate Gem</h1>
+            <h1>Articles tagged 'scripts'</h1>
 
-<h2>Gem</h2>
 
-<p><code>
-  gem &#39;google-cloud-translate&#39;
-</code></p>
+<ul>
+    <li><a href="/2020/02/11/dice.html">Dice</a> <span>Feb 11</span></li>
+</ul>
 
-<p>Like many other rails apps the first thing to do is to include the google translate gem.</p>
-
-<h2>Bundle</h2>
-
-<p><code>
-  bundle
-</code></p>
-
-<p>Make sure to run bundle in terminal.</p>
-
-<h2>Create Module</h2>
-
-<p><code>
-  touch lib/google_translate.rb
-</code></p>
-
-<p>Add a new file to your lib folder.</p>
-
-<h2>The Code</h2>
-
-<p><code>
-  <p>
-  require &quot;google/cloud/translate </br>
-  module GoogleTranslate </br>
-  &nbsp;def self.translate<em>text(text, to = &#39;en&#39;) </br>
-  &nbsp;&nbsp;begin </br>
-  &nbsp;&nbsp;&nbsp;translate = Google::Cloud::Translate.new project: PROJECT</em>ID, key: API_KEY </br>
-  &nbsp;&nbsp;&nbsp;translation = translate.translate text, to: to </br>
-  &nbsp;&nbsp;&nbsp;return translation.text </br>
-  &nbsp;&nbsp;rescue Google::Cloud::Error =&gt; e </br>
-  &nbsp;&nbsp;&nbsp;puts e.message </br>
-  &nbsp;&nbsp;end </br>
-  &nbsp;&nbsp;puts &quot;Text was not translated correctly. Returning original text&quot; </br>
-  &nbsp;&nbsp;text</br>
-  &nbsp;end </br>
-  end </br>
-  </p>
-</code></p>
-
-<p>Add the following to your new file. You will need to replace PROJECT_ID and API_KEY with your very own authentication.</p>
-
-<h2>The Output</h2>
-
-<p><code>
-  <p>
-    rails c</br>
-    [1] pry(main)&gt; GoogleTranslate.translate_text(&#39;hola&#39;)</br>
-    =&gt; &quot;Hello&quot;</br>
-  </p>
-</code></p>
-
-<p>&#39;hola&#39; was correctly translated to &#39;hello&#39;.</p>
-
-<p>-dvcv</p>
 
           </div>
         </div>
