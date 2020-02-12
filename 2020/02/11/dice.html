@@ -68,30 +68,9 @@
 
 <h1>Summary</h1>
 
-<p>I received a call from a family member asking me if I could recreate this thing they saw reddit where a guy used 20,000 dice to make an image. Heres the <a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'>link</a>. I knew someone had to have done this with code and I stumbled upon a medium post <a href='https://medium.com/analytics-vidhya/convert-an-image-into-one-comprised-of-dice-4a3cbcb241c5'>post</a> where Nathan Sheppard converted an image into dice. While it was a good start I needed to see how an image would look like with a given amount of dice. Also I wanted to add the ability to add different shades of dice and make it really easy to change these settings.</p>
+<p>A family member asked me if I could recreate this thing they saw on Reddit where artist Steven Paul used 20,000 dice to make an image of a Native American icon. Heres the <a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'>link</a>. I knew this could be done with code and found many examples online of people doing this. One particular Medium post where Nathan Sheppard converted an image into dice with python seemed very simple and I decided to build on top of his code. While the original code was a good start I needed to see how an image would look like with a given amount of dice. Also, I wanted to add the ability to add different colored dice and make it really easy to change these settings.</p>
 
-<p>The first problem was really interesting because it involved a bit of algebra to figure out. Heres the code.
-<code>
-<p># Get size  </p>
-<p>width, height = image.size</p>
-<p># Given a dice count</p>
-<p># Calculates the amount of dice to use for the width and height</p>
-<p>width<em>ratio = width/(width + height + 0.0)</p>
-<p>height</em>ratio = 1 - width<em>ratio</p>
-<p>new</em>width = ((4<em>height_ratio</em>width<em>ratio<em>dice)**(1/2.0))/(2.0</em>height</em>ratio)</p>
-<p>new<em>height = dice/(new</em>width + 0.0)</p>
-<p>#round to the nearest dice</p>
-<p>new<em>width = int(round(new</em>width))</p>
-<p>new<em>height = int(round(new</em>height))</p>
-<p>print(&#39;The number of dice to use for the width:{0}&#39;.format(new<em>width))</p>
-<p>print(&#39;The number of dice to use for the height:{0}&#39;.format(new</em>height))</p>
-<p>print(&#39;Total:{0}&#39;.format(new<em>width*new</em>height))</p>
-<p>return image.resize((new<em>width, new</em>height))</p>
-</code></p>
-
-<h1>Repository</h1>
-
-<p>Check out the <a href='https://github.com/dvcv/dice-image-generator'>repo</a>.</p>
+<p>You see this project in my <a href='https://github.com/dvcv/dice-image-generator'>repo</a>.</p>
 
 <p>-dvcv</p>
 

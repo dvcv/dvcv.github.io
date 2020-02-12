@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2020/02/11/dice.html"/>
     <id>http://blog.url.com/2020/02/11/dice.html</id>
     <published>2020-02-10T23:40:00-08:00</published>
-    <updated>2020-02-11T00:17:32-08:00</updated>
+    <updated>2020-02-11T19:53:10-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -24,30 +24,9 @@
 
 &lt;h1&gt;Summary&lt;/h1&gt;
 
-&lt;p&gt;I received a call from a family member asking me if I could recreate this thing they saw reddit where a guy used 20,000 dice to make an image. Heres the &lt;a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'&gt;link&lt;/a&gt;. I knew someone had to have done this with code and I stumbled upon a medium post &lt;a href='https://medium.com/analytics-vidhya/convert-an-image-into-one-comprised-of-dice-4a3cbcb241c5'&gt;post&lt;/a&gt; where Nathan Sheppard converted an image into dice. While it was a good start I needed to see how an image would look like with a given amount of dice. Also I wanted to add the ability to add different shades of dice and make it really easy to change these settings.&lt;/p&gt;
+&lt;p&gt;A family member asked me if I could recreate this thing they saw on Reddit where artist Steven Paul used 20,000 dice to make an image of a Native American icon. Heres the &lt;a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'&gt;link&lt;/a&gt;. I knew this could be done with code and found many examples online of people doing this. One particular Medium post where Nathan Sheppard converted an image into dice with python seemed very simple and I decided to build on top of his code. While the original code was a good start I needed to see how an image would look like with a given amount of dice. Also, I wanted to add the ability to add different colored dice and make it really easy to change these settings.&lt;/p&gt;
 
-&lt;p&gt;The first problem was really interesting because it involved a bit of algebra to figure out. Heres the code.
-&lt;code&gt;
-&lt;p&gt;# Get size  &lt;/p&gt;
-&lt;p&gt;width, height = image.size&lt;/p&gt;
-&lt;p&gt;# Given a dice count&lt;/p&gt;
-&lt;p&gt;# Calculates the amount of dice to use for the width and height&lt;/p&gt;
-&lt;p&gt;width&lt;em&gt;ratio = width/(width + height + 0.0)&lt;/p&gt;
-&lt;p&gt;height&lt;/em&gt;ratio = 1 - width&lt;em&gt;ratio&lt;/p&gt;
-&lt;p&gt;new&lt;/em&gt;width = ((4&lt;em&gt;height_ratio&lt;/em&gt;width&lt;em&gt;ratio&lt;em&gt;dice)**(1/2.0))/(2.0&lt;/em&gt;height&lt;/em&gt;ratio)&lt;/p&gt;
-&lt;p&gt;new&lt;em&gt;height = dice/(new&lt;/em&gt;width + 0.0)&lt;/p&gt;
-&lt;p&gt;#round to the nearest dice&lt;/p&gt;
-&lt;p&gt;new&lt;em&gt;width = int(round(new&lt;/em&gt;width))&lt;/p&gt;
-&lt;p&gt;new&lt;em&gt;height = int(round(new&lt;/em&gt;height))&lt;/p&gt;
-&lt;p&gt;print(&amp;#39;The number of dice to use for the width:{0}&amp;#39;.format(new&lt;em&gt;width))&lt;/p&gt;
-&lt;p&gt;print(&amp;#39;The number of dice to use for the height:{0}&amp;#39;.format(new&lt;/em&gt;height))&lt;/p&gt;
-&lt;p&gt;print(&amp;#39;Total:{0}&amp;#39;.format(new&lt;em&gt;width*new&lt;/em&gt;height))&lt;/p&gt;
-&lt;p&gt;return image.resize((new&lt;em&gt;width, new&lt;/em&gt;height))&lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1&gt;Repository&lt;/h1&gt;
-
-&lt;p&gt;Check out the &lt;a href='https://github.com/dvcv/dice-image-generator'&gt;repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You see this project in my &lt;a href='https://github.com/dvcv/dice-image-generator'&gt;repo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;-dvcv&lt;/p&gt;
 </content>
