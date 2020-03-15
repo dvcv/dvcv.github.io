@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-    <link href="/stylesheets/site.css" rel="stylesheet" />
     <link href="/stylesheets/main.css" rel="stylesheet" />
     <link href="/stylesheets/hero.css" rel="stylesheet" />
     <link href="/stylesheets/navbar.css" rel="stylesheet" />
@@ -64,84 +63,100 @@
           <div class="container">
             <h1>Word Frequency Counter with R</h1>
 
-<p>In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.</p>
+<p>In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.
 
-<p><img src="/images/blogs/blog1/focus.png" alt="csv file" /></p>
+<img src="/images/blogs/blog1/focus.png" alt="csv file" /></p>
 
 <p><a href="blogs/blog1/focus.csv">CSV FILE</a></p>
 
-<h1>Import the data into R</h1>
-
-<p><code>
-  <p>#Make sure you are in the right working directory </p>
-  <p>x = read.csv(&quot;focus.csv&quot;, stringsAsFactors=FALSE) #1 </p>
-  <p>data = data$Technologies.Used #2 </p>
-  <p>data = unlist(strsplit(data, &quot;[ ]&quot;)) #3 </p>
-  <p>data = gsub(&quot;,&quot;,&quot;&quot;,data) #4 </p>
-</code></p>
-
+<h2>Import the data into R</h2>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="c1">#Make sure you are in the right working directory</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"focus.csv"</span><span class="p">,</span><span class="w"> </span><span class="n">stringsAsFactors</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="c1">#1</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="o">$</span><span class="n">Technologies.Used</span><span class="w"> </span><span class="c1">#2</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s2">"[ ]"</span><span class="p">))</span><span class="w"> </span><span class="c1">#3</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gsub</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span><span class="s2">""</span><span class="p">,</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="c1">#4</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
 <p>The first line above loads the csv file into R. I only want to look at the Technologies used column therefore I use line 2 to do just that. Line three unlist the data. Without this line we would be looking at rows instead of individual words. Line 4 removes all commas from each word.</p>
 
-<h1>Convert to lower case</h1>
+<h2>Convert to lower case</h2>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="w"> </span><span class="n">rdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tolower</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
+<p>Since R cannot recognize that &ldquo;JavaScript&rdquo; and &ldquo;javascript&rdquo; are the same word I converted all my words to lowercase.</p>
 
-<p><code>data = tolower(data)</code></p>
+<h2>Remove periods, blanks, and junk words</h2>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="n">removePeriod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"·"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removePeriod</span><span class="p">]</span><span class="w">
 
-<p>Since R cannot recognize that &quot;JavaScript&quot; and &quot;javascript&quot; are the same word I converted all my words to lowercase.</p>
+  </span><span class="n">removeBlanks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeBlanks</span><span class="p">]</span><span class="w">
 
-<h1>Remove periods, blanks, and junk words</h1>
+  </span><span class="n">removeDeveloper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"developer"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeDeveloper</span><span class="p">]</span><span class="w">
 
-<p><code>
-  <p>removePeriod = which(data == &quot;·&quot;)</p>
-  <p>data = data[-removePeriod]</p>
-  <br />
-  <p>removeBlanks = which(data == &quot;&quot;)</p>
-  <p>data = data[-removeBlanks]</p>
-  <br />
-  <p>removeDeveloper = which(data == &quot;developer&quot;)</p>
-  <p>data = data[-removeDeveloper]</p>
-  <br />
-  <p>removeExperience = which(data == &quot;experience&quot;)</p>
-  <p>data = data[-removeExperience]</p>
-  <br />
-  <p>removeDevelopment = which(data == &quot;development&quot;)</p>
-  <p>data = data[-removeDevelopment]</p>
-  <br />
-  <p>removeUsing = which(data == &quot;using&quot;)</p>
-  <p>data = data[-removeUsing]</p>
-  <br />
-  <p>removeTime = which(data == &quot;time&quot;)</p>
-  <p>data = data[-removeTime]</p>
-</code></p>
+  </span><span class="n">removeExperience</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"experience"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeExperience</span><span class="p">]</span><span class="w">
 
+  </span><span class="n">removeDevelopment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"development"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeDevelopment</span><span class="p">]</span><span class="w">
+
+  </span><span class="n">removeUsing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"using"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeUsing</span><span class="p">]</span><span class="w">
+
+  </span><span class="n">removeTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"time"</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">removeTime</span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
 <p>I then cleaned up my data by removing periods from words, any empty strings in my data, and junk words. This method of removing words is fine for removing words that are uncommon. However, there is a much faster way of removing common words.</p>
 
-<h1>Remove common words</h1>
-
-<p><code>
-  <p>url = &quot;http://www.textfixer.com/resources/common-english-words.txt&quot;</p>
-  <p>stopwords= strsplit(readLines(url), &quot;,&quot;)[[1]]</p>
-  <p>removeWords=which(is.element(data, stopwords)==FALSE)</p>
-  <p>data = data[removeWords]</p>
-</code></p>
-
+<h2>Remove common words</h2>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://www.textfixer.com/resources/common-english-words.txt"</span><span class="w">
+  </span><span class="n">stopwords</span><span class="o">=</span><span class="w"> </span><span class="n">strsplit</span><span class="p">(</span><span class="n">readLines</span><span class="p">(</span><span class="n">url</span><span class="p">),</span><span class="w"> </span><span class="s2">","</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+  </span><span class="n">removeWords</span><span class="o">=</span><span class="n">which</span><span class="p">(</span><span class="n">is.element</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">stopwords</span><span class="p">)</span><span class="o">==</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">removeWords</span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
 <p>I used the url above to find the most common english words. I then removed all common words from my data.</p>
 
-<h1>Plot the Graph</h1>
-
-<p><code>
-  <p>barplot(sort(table(data))[(length(table(data))-10):length( table( data ) )], las=2, main = &quot;Technology Focus in Los Angeles&quot;, ylab = &quot;Frequency&quot;)</p>
-</code></p>
-
+<h2>Plot the Graph</h2>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="n">barplot</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">data</span><span class="p">))[(</span><span class="nf">length</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="m">-10</span><span class="p">)</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="w"> </span><span class="n">table</span><span class="p">(</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)],</span><span class="w"> </span><span class="n">las</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Technology Focus in Los Angeles"</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Frequency"</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
 <p>This last line of code is a bit heavy but basically it is creating a word frequency count of the cleaned data and graphing into a bar plot. This is the final output.</p>
 
 <p><img src="/images/blogs/blog1/Rplot.png" alt="Rplot" /></p>
 
-<p>One thing to note is that R did not recognize &quot;full&quot; and &quot;full-stack&quot; were the same words. To fix this we can use gsub to replace &quot;full&quot; with &quot;full-stack&quot;</p>
-
-<p><code>
-  <p>data = gsub(&quot;(full)$&quot;,&quot;full-stack&quot;,data)</p>
-</code></p>
-
+<p>One thing to note is that R did not recognize &ldquo;full&rdquo; and &ldquo;full-stack&rdquo; were the same words. To fix this we can use gsub to replace &ldquo;full&rdquo; with &ldquo;full-stack&rdquo;</p>
+<div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gsub</span><span class="p">(</span><span class="s2">"(full)$"</span><span class="p">,</span><span class="s2">"full-stack"</span><span class="p">,</span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>
 <p><img src="/images/blogs/blog1/Rplot02.png" alt="Rplot02" /></p>
 
 <p>-dvcv</p>

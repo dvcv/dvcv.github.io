@@ -14,15 +14,22 @@
     <link rel="alternate" href="http://blog.url.com/2020/02/11/dice.html"/>
     <id>http://blog.url.com/2020/02/11/dice.html</id>
     <published>2020-02-10T23:40:00-08:00</published>
-    <updated>2020-02-23T23:05:39-08:00</updated>
+    <updated>2020-03-14T20:22:21-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Turn images to dice with python&lt;/h1&gt;
 
-&lt;p&gt;&lt;image width='50' src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;image
+  style='display: block;
+  margin-left: auto;
+  margin-right: auto;'
+  width='50'
+  src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png'
+/&gt;
+&lt;/p&gt;
 
-&lt;h1&gt;Summary&lt;/h1&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
 
 &lt;p&gt;A family member asked me if I could recreate this thing they saw on Reddit where artist Steven Paul used 20,000 dice to make an image of a Native American icon. Heres the &lt;a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'&gt;link&lt;/a&gt;. I knew this could be done with code and found many examples online of people doing this. One particular Medium post where Nathan Sheppard converted an image into dice with python seemed very simple and I decided to build on top of his code. While the original code was a good start I needed to see how an image would look like with a given amount of dice. Also, I wanted to add the ability to add different colored dice and make it really easy to change these settings.&lt;/p&gt;
 
@@ -36,70 +43,73 @@
     <link rel="alternate" href="http://blog.url.com/2018/07/15/google-translate-gem.html"/>
     <id>http://blog.url.com/2018/07/15/google-translate-gem.html</id>
     <published>2018-07-14T22:27:00-07:00</published>
-    <updated>2020-02-11T21:23:39-08:00</updated>
+    <updated>2020-03-14T20:17:15-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Google Translate Gem&lt;/h1&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;h2&gt;Gem&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;
-  gem &amp;#39;google-cloud-translate&amp;#39;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;  &lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'google-cloud-translate'&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Like many other rails apps the first thing to do is to include the google translate gem.&lt;/p&gt;
 
 &lt;h2&gt;Bundle&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;
-  bundle
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;  &lt;span class="n"&gt;bundle&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Make sure to run bundle in terminal.&lt;/p&gt;
 
 &lt;h2&gt;Create Module&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;
-  touch lib/google_translate.rb
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;  &lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;google_translate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rb&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Add a new file to your lib folder.&lt;/p&gt;
 
 &lt;h2&gt;The Code&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;
-  require &amp;quot;google/cloud/translate &lt;/br&gt;
-  module GoogleTranslate &lt;/br&gt;
-  &amp;nbsp;def self.translate&lt;em&gt;text(text, to = &amp;#39;en&amp;#39;) &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;begin &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;translate = Google::Cloud::Translate.new project: PROJECT&lt;/em&gt;ID, key: API_KEY &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;translation = translate.translate text, to: to &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;return translation.text &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;rescue Google::Cloud::Error =&amp;gt; e &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;&amp;nbsp;puts e.message &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;end &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;puts &amp;quot;Text was not translated correctly. Returning original text&amp;quot; &lt;/br&gt;
-  &amp;nbsp;&amp;nbsp;text&lt;/br&gt;
-  &amp;nbsp;end &lt;/br&gt;
-  end &lt;/br&gt;
-  &lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s2"&gt;"google/cloud/translate"&lt;/span&gt;
+&lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;GoogleTranslate&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nc"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;translate_text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'en'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;begin&lt;/span&gt;
+                  &lt;span class="n"&gt;translate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Google&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Cloud&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Translate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="ss"&gt;project: &lt;/span&gt;&lt;span class="no"&gt;PROJECT_ID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;key: &lt;/span&gt;&lt;span class="no"&gt;API_KEY&lt;/span&gt;
+                  &lt;span class="n"&gt;translation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;translate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;translate&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;to: &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;
+                  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;translation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;text&lt;/span&gt;
+            &lt;span class="k"&gt;rescue&lt;/span&gt; &lt;span class="no"&gt;Google&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Cloud&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Error&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;
+                  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;message&lt;/span&gt;
+            &lt;span class="k"&gt;end&lt;/span&gt;
+            &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Text was not translated correctly. Returning original text"&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;
+      &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Add the following to your new file. You will need to replace PROJECT_ID and API_KEY with your very own authentication.&lt;/p&gt;
 
 &lt;h2&gt;The Output&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;
-    rails c&lt;/br&gt;
-    [1] pry(main)&amp;gt; GoogleTranslate.translate_text(&amp;#39;hola&amp;#39;)&lt;/br&gt;
-    =&amp;gt; &amp;quot;Hello&amp;quot;&lt;/br&gt;
-  &lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;#39;hola&amp;#39; was correctly translated to &amp;#39;hello&amp;#39;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;    &lt;span class="n"&gt;rails&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;pry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="no"&gt;GoogleTranslate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;translate_text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'hola'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;"Hello"&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;lsquo;hola&amp;rsquo; was correctly translated to &amp;lsquo;hello&amp;rsquo;.&lt;/p&gt;
 
 &lt;p&gt;-dvcv&lt;/p&gt;
 </content>
@@ -109,7 +119,7 @@
     <link rel="alternate" href="http://blog.url.com/2018/01/06/magic-mirror.html"/>
     <id>http://blog.url.com/2018/01/06/magic-mirror.html</id>
     <published>2018-01-05T21:28:00-08:00</published>
-    <updated>2020-02-11T21:23:39-08:00</updated>
+    <updated>2020-03-14T20:17:07-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -128,7 +138,7 @@ Below is an example of what it looks like when turned on.&lt;/p&gt;
   &lt;blockquote class="imgur-embed-pub" lang="en" data-id="nOsLE1j"&gt;&lt;a href="//imgur.com/nOsLE1j"&gt;&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="//s.imgur.com/min/embed.js" charset="utf-8"&gt;&lt;/script&gt;
 &lt;/div&gt;
 
-&lt;h1&gt;Slideshow&lt;/h1&gt;
+&lt;h2&gt;Slideshow&lt;/h2&gt;
 
 &lt;div style="text-align:center"&gt;
   &lt;blockquote class="imgur-embed-pub" lang="en" data-id="a/unhm5"&gt;&lt;a href="//imgur.com/unhm5"&gt;Magic Mirror&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="//s.imgur.com/min/embed.js" charset="utf-8"&gt;&lt;/script&gt;
@@ -142,90 +152,106 @@ Below is an example of what it looks like when turned on.&lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2017/12/06/word-frequency-count.html"/>
     <id>http://blog.url.com/2017/12/06/word-frequency-count.html</id>
     <published>2017-12-05T21:29:00-08:00</published>
-    <updated>2020-02-11T21:23:39-08:00</updated>
+    <updated>2020-03-14T20:16:45-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Word Frequency Counter with R&lt;/h1&gt;
 
-&lt;p&gt;In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.&lt;/p&gt;
+&lt;p&gt;In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.
 
-&lt;p&gt;&lt;img src="/images/blogs/blog1/focus.png" alt="csv file" /&gt;&lt;/p&gt;
+&lt;img src="/images/blogs/blog1/focus.png" alt="csv file" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="blogs/blog1/focus.csv"&gt;CSV FILE&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1&gt;Import the data into R&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;#Make sure you are in the right working directory &lt;/p&gt;
-  &lt;p&gt;x = read.csv(&amp;quot;focus.csv&amp;quot;, stringsAsFactors=FALSE) #1 &lt;/p&gt;
-  &lt;p&gt;data = data$Technologies.Used #2 &lt;/p&gt;
-  &lt;p&gt;data = unlist(strsplit(data, &amp;quot;[ ]&amp;quot;)) #3 &lt;/p&gt;
-  &lt;p&gt;data = gsub(&amp;quot;,&amp;quot;,&amp;quot;&amp;quot;,data) #4 &lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;h2&gt;Import the data into R&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;#Make sure you are in the right working directory&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;read.csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"focus.csv"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stringsAsFactors&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#1&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Technologies.Used&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#2&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;unlist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"[ ]"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#3&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;#4&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The first line above loads the csv file into R. I only want to look at the Technologies used column therefore I use line 2 to do just that. Line three unlist the data. Without this line we would be looking at rows instead of individual words. Line 4 removes all commas from each word.&lt;/p&gt;
 
-&lt;h1&gt;Convert to lower case&lt;/h1&gt;
+&lt;h2&gt;Convert to lower case&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rdata&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tolower&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since R cannot recognize that &amp;ldquo;JavaScript&amp;rdquo; and &amp;ldquo;javascript&amp;rdquo; are the same word I converted all my words to lowercase.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;data = tolower(data)&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Remove periods, blanks, and junk words&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;removePeriod&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"·"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removePeriod&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
 
-&lt;p&gt;Since R cannot recognize that &amp;quot;JavaScript&amp;quot; and &amp;quot;javascript&amp;quot; are the same word I converted all my words to lowercase.&lt;/p&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;removeBlanks&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeBlanks&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
 
-&lt;h1&gt;Remove periods, blanks, and junk words&lt;/h1&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;removeDeveloper&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"developer"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeDeveloper&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
 
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;removePeriod = which(data == &amp;quot;·&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removePeriod]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeBlanks = which(data == &amp;quot;&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeBlanks]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeDeveloper = which(data == &amp;quot;developer&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeDeveloper]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeExperience = which(data == &amp;quot;experience&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeExperience]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeDevelopment = which(data == &amp;quot;development&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeDevelopment]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeUsing = which(data == &amp;quot;using&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeUsing]&lt;/p&gt;
-  &lt;br /&gt;
-  &lt;p&gt;removeTime = which(data == &amp;quot;time&amp;quot;)&lt;/p&gt;
-  &lt;p&gt;data = data[-removeTime]&lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;removeExperience&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"experience"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeExperience&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
 
+  &lt;/span&gt;&lt;span class="n"&gt;removeDevelopment&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"development"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeDevelopment&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+
+  &lt;/span&gt;&lt;span class="n"&gt;removeUsing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"using"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeUsing&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+
+  &lt;/span&gt;&lt;span class="n"&gt;removeTime&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"time"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;removeTime&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I then cleaned up my data by removing periods from words, any empty strings in my data, and junk words. This method of removing words is fine for removing words that are uncommon. However, there is a much faster way of removing common words.&lt;/p&gt;
 
-&lt;h1&gt;Remove common words&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;url = &amp;quot;http://www.textfixer.com/resources/common-english-words.txt&amp;quot;&lt;/p&gt;
-  &lt;p&gt;stopwords= strsplit(readLines(url), &amp;quot;,&amp;quot;)[[1]]&lt;/p&gt;
-  &lt;p&gt;removeWords=which(is.element(data, stopwords)==FALSE)&lt;/p&gt;
-  &lt;p&gt;data = data[removeWords]&lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;h2&gt;Remove common words&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"http://www.textfixer.com/resources/common-english-words.txt"&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;stopwords&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readLines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="p"&gt;)[[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;removeWords&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is.element&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stopwords&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;removeWords&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I used the url above to find the most common english words. I then removed all common words from my data.&lt;/p&gt;
 
-&lt;h1&gt;Plot the Graph&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;barplot(sort(table(data))[(length(table(data))-10):length( table( data ) )], las=2, main = &amp;quot;Technology Focus in Los Angeles&amp;quot;, ylab = &amp;quot;Frequency&amp;quot;)&lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;h2&gt;Plot the Graph&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;barplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;))[(&lt;/span&gt;&lt;span class="nf"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="m"&gt;-10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nf"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)],&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;las&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"Technology Focus in Los Angeles"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ylab&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"Frequency"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This last line of code is a bit heavy but basically it is creating a word frequency count of the cleaned data and graphing into a bar plot. This is the final output.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot.png" alt="Rplot" /&gt;&lt;/p&gt;
 
-&lt;p&gt;One thing to note is that R did not recognize &amp;quot;full&amp;quot; and &amp;quot;full-stack&amp;quot; were the same words. To fix this we can use gsub to replace &amp;quot;full&amp;quot; with &amp;quot;full-stack&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-  &lt;p&gt;data = gsub(&amp;quot;(full)$&amp;quot;,&amp;quot;full-stack&amp;quot;,data)&lt;/p&gt;
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;p&gt;One thing to note is that R did not recognize &amp;ldquo;full&amp;rdquo; and &amp;ldquo;full-stack&amp;rdquo; were the same words. To fix this we can use gsub to replace &amp;ldquo;full&amp;rdquo; with &amp;ldquo;full-stack&amp;rdquo;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"(full)$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;"full-stack"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot02.png" alt="Rplot02" /&gt;&lt;/p&gt;
 
 &lt;p&gt;-dvcv&lt;/p&gt;
