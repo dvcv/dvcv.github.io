@@ -6,73 +6,96 @@ tags: [ruby, data structures]
 published: false
 ---
 #Data Structures with Ruby
+A brief overview of data structures written in ruby.
 READMORE
-##Summary
-This is a brief overview of data structures written in ruby.
-
 ##Linked List
 ```ruby
 class Node
-  attr_accessor :value, :next   
-  def initialize(value, next_node)   
-    @value = value   
-    @next = next_node   
-  end   
+  attr_accessor :value, :next
+  def initialize(value, next_node)
+    @value = value
+    @next = nil
+  end
 end
-```
 
-```ruby
 class LinkedList
   attr_accessor :head
+  def initialize
+    @head = nil
+  end
 
   def add(value)
-    if(@head.nil?)
-      @head = Node.new(value, nil)
+    if @head == nil
+      @head = Node.new(value,nil)
     else
-      current = @head
-      while(current.next != nil)
-        current = current.next
+      curr = @head
+      while(curr.next != nil)
+        curr = curr.next
       end
-      current.next = Node.new(value, nil)
+      curr.next =  Node.new(value, nil)
     end
   end
 
-  def reverse(list)
-    return nil if list.nil?
-    prev = nil
-    curr = list.head
-
-    while(curr != nil)
-      temp = curr.next
-      curr.next = prev
-      prev = curr
-      curr = temp
+  def remove(value)
+    curr = @head
+    if curr.value == value
+        @head = curr.next
+    else
+      while(curr.next != nil && curr.next.value != value)
+        curr = curr.next
+      end
+      if curr.next&.value == value
+        curr.next = curr.next.next
+      end
     end
-    list.head = prev
-    list
   end
 
-  def display(list)
-    return nil if list.nil?
-    curr = list.head
+  def to_s
+    return '' if @head == nil
     arr = []
-    while(curr != nil)
-      arr.push(curr.value)
+    curr = @head
+    arr << curr.value
+    while(curr.next != nil)
       curr = curr.next
+      arr << curr.value
     end
-    p arr
+    arr.to_s
   end
 end
+
+
+def reverse_link_list(list)
+  curr = list.head
+  prev = nil
+  while(curr != nil)
+    temp = curr.next
+    curr.next = prev
+    prev = curr
+    curr = temp
+  end
+  list.head = prev
+  list
+end
+
 ```
 
-###Output
+<div style="text-align: center;">
+<h3>Output</h3>
+</div>
 ```ruby
-list = LinkedList.new()
-list.add(1)
-list.add(2)
-list.add(3)
-list.display(list)                #list before reversing [1,2,3]
-list.display(list.reverse(list))  #list after reversing  [3,2,1]
+
+l = LinkedList.new
+l.add(1)
+l.add(2)
+l.add(3)
+l.add(4)
+p l.to_s
+#"[1, 2, 3, 4]"
+l.remove(2)
+p l.to_s
+#"[1, 3, 4]"
+p reverse_link_list(l).to_s
+#"[4, 3, 1]"
 ```
 
 \-dvcv
