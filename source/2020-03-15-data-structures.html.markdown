@@ -14,7 +14,7 @@ class Node
   attr_accessor :value, :next
   def initialize(value, next_node)
     @value = value
-    @next = nil
+    @next = next_node
   end
 end
 
@@ -76,14 +76,12 @@ def reverse_link_list(list)
   list.head = prev
   list
 end
-
 ```
 
 <div style="text-align: center;">
 <h3>Output</h3>
 </div>
 ```ruby
-
 l = LinkedList.new
 l.add(1)
 l.add(2)
@@ -96,6 +94,61 @@ p l.to_s
 #"[1, 3, 4]"
 p reverse_link_list(l).to_s
 #"[4, 3, 1]"
+```
+
+##Stack
+```ruby
+class Node
+  attr_accessor :value, :next
+  def initialize(value, next_node)
+    @value = value
+    @next = next_node
+  end
+end
+
+class Stack
+  attr_accessor :head
+
+  def initialize
+    @head = nil
+  end
+
+  def push(value)
+    @head = Node.new(value, @head)
+  end
+
+  def pop
+    value = @head.value
+    @head = @head.next
+    value
+  end
+
+   def to_s
+    return '' if @head == nil
+    arr = []
+    curr = @head
+    arr << curr.value
+    while(curr.next != nil)
+      curr = curr.next
+      arr << curr.value
+    end
+    arr.to_s
+  end
+end
+```
+
+<div style="text-align: center;">
+<h3>Output</h3>
+</div>
+```ruby
+stack = Stack.new
+stack.push 3
+stack.push 5
+stack.push 7
+p stack.pop
+#7
+p stack.to_s
+#"[5, 3]"
 ```
 
 \-dvcv
