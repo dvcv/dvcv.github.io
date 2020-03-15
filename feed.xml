@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2020/02/11/dice.html"/>
     <id>http://blog.url.com/2020/02/11/dice.html</id>
     <published>2020-02-10T23:40:00-08:00</published>
-    <updated>2020-03-14T20:22:21-07:00</updated>
+    <updated>2020-03-14T20:40:53-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -28,8 +28,6 @@
   src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png'
 /&gt;
 &lt;/p&gt;
-
-&lt;h2&gt;Summary&lt;/h2&gt;
 
 &lt;p&gt;A family member asked me if I could recreate this thing they saw on Reddit where artist Steven Paul used 20,000 dice to make an image of a Native American icon. Heres the &lt;a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'&gt;link&lt;/a&gt;. I knew this could be done with code and found many examples online of people doing this. One particular Medium post where Nathan Sheppard converted an image into dice with python seemed very simple and I decided to build on top of his code. While the original code was a good start I needed to see how an image would look like with a given amount of dice. Also, I wanted to add the ability to add different colored dice and make it really easy to change these settings.&lt;/p&gt;
 
