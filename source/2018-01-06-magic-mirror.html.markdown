@@ -20,7 +20,7 @@ I recently re-painted the magic mirror and added a motion sensor to the mirror.
   <blockquote class="imgur-embed-pub" lang="en" data-id="nOsLE1j"><a href="//imgur.com/nOsLE1j"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 </div>
 
-# Slideshow
+## Slideshow
 
 <div style="text-align:center">
   <blockquote class="imgur-embed-pub" lang="en" data-id="a/unhm5"><a href="//imgur.com/unhm5">Magic Mirror</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>

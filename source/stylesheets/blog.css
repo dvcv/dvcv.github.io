@@ -2,7 +2,7 @@ body {
   background-color: white;
   color: black;
 }
-
+/* 
 code {
   color: white;
   padding: 0;
@@ -11,7 +11,7 @@ code {
 
 code p {
   background-color: black;
-}
+} */
 .quote {
   white-space: pre-wrap; /* css-3 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
