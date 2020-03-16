@@ -1,8 +1,8 @@
 ---
 
 title: Algorithms with Ruby
-date: 2020-03-15 20:06 UTC
-tags: [ruby, data structures]
+date: 2020-03-16 20:06 UTC
+tags: [ruby, algorithms]
 published: false
 ---
 #Algorithms with Ruby

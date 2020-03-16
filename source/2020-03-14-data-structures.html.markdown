@@ -1,7 +1,7 @@
 ---
 
 title: Data Structures with Ruby
-date: 2020-03-15 01:29 UTC
+date: 2020-03-14 01:29 UTC
 tags: [ruby, data structures]
 published: false
 ---
