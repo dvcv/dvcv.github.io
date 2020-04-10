@@ -2,7 +2,7 @@
 
 title: Reducers in React Native
 date: 2020-04-09 00:45 UTC
-tags:
+tags: [react native, javascript]
 
 ---
 #Practice with Reducers in React Native
