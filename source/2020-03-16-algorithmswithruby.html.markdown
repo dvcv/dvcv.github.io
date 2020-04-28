@@ -6,6 +6,7 @@ tags: [ruby, algorithms]
 published: true
 ---
 #Practice with Ruby
+###2020-03-16
 A brief overview of data structures and algorithms written in ruby.
 READMORE
 ##Linked List

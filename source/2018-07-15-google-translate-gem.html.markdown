@@ -4,6 +4,8 @@ date: 2018-07-15 05:27 UTC
 tags: [api, ruby, gem]
 ---
 #Google Translate Gem
+###2018-07-15
+How to use the google translate gem.
 READMORE
 ## Gem
 
@@ -11,7 +13,6 @@ READMORE
   gem 'google-cloud-translate'
 ```
 
-Like many other rails apps the first thing to do is to include the google translate gem.
 
 ## Bundle
 

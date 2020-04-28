@@ -6,7 +6,7 @@ tags: [R]
 
 ---
 #Word Frequency Counter with R
-
+###2017-12-06
 In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.
 READMORE
 ![csv file](blogs/blog1/focus.png)
