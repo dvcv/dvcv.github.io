@@ -14,14 +14,16 @@
     <link rel="alternate" href="http://blog.url.com/2020/04/09/react-native.html"/>
     <id>http://blog.url.com/2020/04/09/react-native.html</id>
     <published>2020-04-08T17:45:00-07:00</published>
-    <updated>2020-04-09T20:54:32-07:00</updated>
+    <updated>2020-04-27T19:35:51-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Practice with Reducers in React Native&lt;/h1&gt;
 
-&lt;p&gt;
-A small example using the useReducer hook in react native.  &lt;/p&gt;
+&lt;h3&gt;2020-04-09&lt;/h3&gt;
+
+&lt;p&gt;A small example using the useReducer hook in react native.&lt;br&gt;
+&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
 2
 3
@@ -99,11 +101,13 @@ A small example using the useReducer hook in react native.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2020/03/16/algorithmswithruby.html"/>
     <id>http://blog.url.com/2020/03/16/algorithmswithruby.html</id>
     <published>2020-03-16T13:06:00-07:00</published>
-    <updated>2020-04-09T20:50:40-07:00</updated>
+    <updated>2020-04-27T19:29:02-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Practice with Ruby&lt;/h1&gt;
+
+&lt;h3&gt;2020-03-16&lt;/h3&gt;
 
 &lt;p&gt;A brief overview of data structures and algorithms written in ruby.
 &lt;/p&gt;
@@ -462,19 +466,15 @@ A small example using the useReducer hook in react native.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2020/02/11/dice.html"/>
     <id>http://blog.url.com/2020/02/11/dice.html</id>
     <published>2020-02-10T23:40:00-08:00</published>
-    <updated>2020-03-14T20:40:53-07:00</updated>
+    <updated>2020-04-27T21:48:57-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;h1&gt;Turn images to dice with python&lt;/h1&gt;
+    <content type="html">&lt;h1&gt;Using dice to create images with python&lt;/h1&gt;
 
-&lt;p&gt;&lt;image
-  style='display: block;
-  margin-left: auto;
-  margin-right: auto;'
-  width='50'
-  src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png'
-/&gt;
+&lt;h3&gt;2020-02-11&lt;/h3&gt;
+
+&lt;p&gt;&lt;image width='20' src='https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png' /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;A family member asked me if I could recreate this thing they saw on Reddit where artist Steven Paul used 20,000 dice to make an image of a Native American icon. Heres the &lt;a href='https://www.reddit.com/r/nextfuckinglevel/comments/ekyt8y/entirely_made_of_dice/'&gt;link&lt;/a&gt;. I knew this could be done with code and found many examples online of people doing this. One particular Medium post where Nathan Sheppard converted an image into dice with python seemed very simple and I decided to build on top of his code. While the original code was a good start I needed to see how an image would look like with a given amount of dice. Also, I wanted to add the ability to add different colored dice and make it really easy to change these settings.&lt;/p&gt;
@@ -489,20 +489,21 @@ A small example using the useReducer hook in react native.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2018/07/15/google-translate-gem.html"/>
     <id>http://blog.url.com/2018/07/15/google-translate-gem.html</id>
     <published>2018-07-14T22:27:00-07:00</published>
-    <updated>2020-03-14T20:17:15-07:00</updated>
+    <updated>2020-04-27T19:58:04-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Google Translate Gem&lt;/h1&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;h3&gt;2018-07-15&lt;/h3&gt;
+
+&lt;p&gt;How to use the google translate gem.
+&lt;/p&gt;
 
 &lt;h2&gt;Gem&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;  &lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'google-cloud-translate'&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Like many other rails apps the first thing to do is to include the google translate gem.&lt;/p&gt;
-
 &lt;h2&gt;Bundle&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;  &lt;span class="n"&gt;bundle&lt;/span&gt;
@@ -565,14 +566,16 @@ A small example using the useReducer hook in react native.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2018/01/06/magic-mirror.html"/>
     <id>http://blog.url.com/2018/01/06/magic-mirror.html</id>
     <published>2018-01-05T21:28:00-08:00</published>
-    <updated>2020-03-14T20:17:07-07:00</updated>
+    <updated>2020-04-27T19:55:45-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Magic Mirror&lt;/h1&gt;
 
+&lt;h3&gt;2018-01-06&lt;/h3&gt;
+
 &lt;p&gt;Previously, I had worked with the rasberrypi to create an retro bartop arcade.
-After making it I still had an itch to make something else with the powerful little computer.
+After making it I still had an itch to make something else with the powerful little computer. 
 I found that the magic mirror was one of the most popular projects with the raspberrypi.
 Below is an example of what it looks like when turned on.&lt;/p&gt;
 
@@ -598,11 +601,13 @@ Below is an example of what it looks like when turned on.&lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2017/12/06/word-frequency-count.html"/>
     <id>http://blog.url.com/2017/12/06/word-frequency-count.html</id>
     <published>2017-12-05T21:29:00-08:00</published>
-    <updated>2020-03-14T20:16:45-07:00</updated>
+    <updated>2020-04-27T19:30:26-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;Word Frequency Counter with R&lt;/h1&gt;
+
+&lt;h3&gt;2017-12-06&lt;/h3&gt;
 
 &lt;p&gt;In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.
 
