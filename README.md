@@ -2,5 +2,5 @@
 ## Start server
 bundle exec middleman server
 ## Deploy
-middleman build
-middleman deploy
+bundle exec middleman build
+bundle exec middleman deploy
