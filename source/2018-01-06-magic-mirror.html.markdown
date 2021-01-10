@@ -6,8 +6,9 @@ tags: [projects, pi]
 
 ---
 #Magic Mirror
+###2018-01-06
 Previously, I had worked with the rasberrypi to create an retro bartop arcade.
-After making it I still had an itch to make something else with the powerful little computer.
+After making it I still had an itch to make something else with the powerful little computer. READMORE
 I found that the magic mirror was one of the most popular projects with the raspberrypi.
 Below is an example of what it looks like when turned on.
 

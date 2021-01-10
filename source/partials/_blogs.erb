@@ -1,5 +1,5 @@
 <div class="blogs">
-  <h1 class="section-heading">Blog</h1>
+  <h1 class="section-heading">Blogs</h1>
   <div class="container">
     <% if paginate && num_pages > 1 %>
       <p>Page <%= page_number %> of <%= num_pages %></p>
@@ -10,9 +10,11 @@
     <% end %>
 
     <% page_articles.each_with_index do |article, i| %>
-      <h3 class="text-center"><%= article.date.strftime('%b %e, %Y') %></h3>
-      <p> <%= article.summary %> </p>
-      <%= link_to article.title, article, class: "github-button btn btn-secondary btn-block", style: 'margin-bottom: 10px;' %>
+    <div class='blog-card'>
+      <%= article.summary %>
+      <%= link_to 'Read more....', article, class: "github-button btn btn-secondary pull-right" %>
+    </div>
+
     <% end %>
 
     <% if paginate %>

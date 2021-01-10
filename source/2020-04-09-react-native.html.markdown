@@ -6,8 +6,9 @@ tags: [react native, javascript]
 
 ---
 #Practice with Reducers in React Native
-READMORE
+###2020-04-09
 A small example using the useReducer hook in react native.  
+READMORE
 
 ```ruby
 import React, { useReducer } from 'react';
