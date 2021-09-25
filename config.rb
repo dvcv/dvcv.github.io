@@ -74,6 +74,6 @@ end
 
 activate :deploy do |deploy|
   deploy.deploy_method = :git
-  deploy.branch = 'master'
+  deploy.branch = 'deployed'
   deploy.build_before = true
 end
