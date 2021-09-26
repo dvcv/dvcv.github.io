@@ -41,7 +41,7 @@ activate :blog do |blog|
 
   # Enable pagination
   blog.paginate = true
-  blog.per_page = 10
+  blog.per_page = 1
   blog.page_link = "page/{num}"
 end
 

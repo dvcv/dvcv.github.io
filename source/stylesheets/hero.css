@@ -1,7 +1,7 @@
 /*hero*/
 #hero{
     width: 100%;
-    height: 100%;
+    height: 40%;
     background-image: url('../images/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,34 +9,15 @@
 
 #hero2{
     width: 100%;
-    height: 150px;
+    height: 100px;
     background-image: url('../images/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-
 /*typewritter skills*/
-#skill-view{
-    position: absolute;
-    bottom: 0;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-#skill-view h1{
-    font-size: 1.2rem;
-    color: white;
-}
-
-/*animated skills*/
-.skill {
-    color: white;
-    font-size: .75rem;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-right: solid;
-    text-align: center;
-
+.skills {
+ color: white;
 }
 
 .skill:last-child {

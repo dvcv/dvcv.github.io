@@ -3,7 +3,7 @@
 title: Data Structures and Algorithms with Ruby
 date: 2020-03-16 20:06 UTC
 tags: [ruby, algorithms]
-published: true
+published: false
 ---
 #Practice with Ruby
 ###2020-03-16
