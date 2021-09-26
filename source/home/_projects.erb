@@ -3,6 +3,14 @@
   <h1 class="section-heading">Projects</h1>
   <div class="container">
     <%= partial "partials/project", locals: {
+      image: 'cvtherapy.png',
+      title: 'CV Therapy',
+      desc: 'Counseling & Wellness Center with English and Spanish text',
+      tools: 'React, Firebase',
+      project_link: 'https://www.cvtherapy.org'
+    }
+    %>
+    <%= partial "partials/project", locals: {
       image: 'job-tracker.png',
       title: 'Job Tracker',
       desc: 'Keep track of all your job applications. With maps, cover letters, calendars, and more!',
