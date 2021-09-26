@@ -59,8 +59,8 @@
 
 <!-- hero -->
 <div id="hero" class="d-flex justify-content-start align-items-end">
-  <div>
-    <h1 id="skills" class="skills p-2" style="white-space: nowrap;">Welcome</h1>
+  <div class="skills p-2">
+    <h1 id="skills" style="white-space: nowrap;">Welcome</h1>
   </div>
 </div>
 
@@ -68,34 +68,58 @@
   <h1 class="section-heading">Blogs</h1>
   <div class="container">
 
-    <div class='blog-card'>
-      <h1>Using dice to create images with python</h1>
+    <div class="row">
+      <div class="col-md-6 ">
+        <div class="p-1 h-100">
+          <div class="blog-card h-100 p-3 d-flex flex-column justify-content-start">
+            <div>
+              <h1>Using dice to create images with python</h1>
 
 <h3>2020-02-11</h3>
 
 <p><image width="20" src="https://raw.githubusercontent.com/dvcv/dice-image-generator/master/examples/dice.png"></image>
 </p>
-      <a href="/2020/02/11/dice.html" class="github-button btn btn-secondary pull-right">Read more....</a>
-    </div>
-
-    <div class='blog-card'>
-      <h1>Magic Mirror</h1>
+            </div>
+            <div class="mt-auto">
+              <a href="/2020/02/11/dice.html" class="btn btn-secondary pull-right">Read more....</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="p-1 h-100">
+          <div class="blog-card h-100 p-3 d-flex flex-column justify-content-start">
+            <div>
+              <h1>Magic Mirror</h1>
 
 <h3>2018-01-06</h3>
 
 <p>Previously, I had worked with the rasberrypi to create an retro bartop arcade.
 After making it I still had an itch to make something else with the powerful little computer. </p>
-      <a href="/2018/01/06/magic-mirror.html" class="github-button btn btn-secondary pull-right">Read more....</a>
-    </div>
-
-    <div class='blog-card'>
-      <h1>Word Frequency Counter with R</h1>
+            </div>
+            <div class="mt-auto">
+              <a href="/2018/01/06/magic-mirror.html" class="btn btn-secondary pull-right">Read more....</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="p-1 h-100">
+          <div class="blog-card h-100 p-3 d-flex flex-column justify-content-start">
+            <div>
+              <h1>Word Frequency Counter with R</h1>
 
 <h3>2017-12-06</h3>
 
 <p>In the csv file below I wanted to find the top 10 most common technologies used in 30 job positions in Los Angeles. Instead of doing this manually I decided to use R. Below are the steps I took.
 </p>
-      <a href="/2017/12/06/word-frequency-count.html" class="github-button btn btn-secondary pull-right">Read more....</a>
+            </div>
+            <div class="mt-auto">
+              <a href="/2017/12/06/word-frequency-count.html" class="btn btn-secondary pull-right">Read more....</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -107,136 +131,136 @@ After making it I still had an itch to make something else with the powerful lit
   <h1 class="section-heading">Projects</h1>
   <div class="container">
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/job-tracker.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-        <h2 class="project-title">Job Tracker</h2>
-          <p>Keep track of all your job applications. With maps, cover letters, calendars, and more!</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">Ruby on Rails, Google Maps API, Custom API, React Native App</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://job-tracker-dvcv.herokuapp.com" target="_blank">View Web App</a>
-            <a class="github-button btn btn-secondary" href="https://apps.apple.com/us/app/job-tracker-app/id1510267856" target="_blank">View Mobile App</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/job-tracker.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Job Tracker</h2>
+        <p>Keep track of all your job applications. With maps, cover letters, calendars, and more!</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">Ruby on Rails, Google Maps API, Custom API, React Native App</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://job-tracker-dvcv.herokuapp.com/" target="_blank">View Web App</a>
+        <a class="github-button btn btn-secondary" href="https://apps.apple.com/us/app/job-tracker-app/id1510267856" target="_blank">View Mobile App</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/drink-journal.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-        <h2 class="project-title">Drink Journal</h2>
-          <p>The Drink Journal was created to give you a brief overview of drinks and help you discover new ones.</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">Ruby on Rails, Pagy, PostgresSql, S3 Buckets, Heroku</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://drink-journal.herokuapp.com" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/drink-journal.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Drink Journal</h2>
+        <p>The Drink Journal was created to give you a brief overview of drinks and help you discover new ones.</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">Ruby on Rails, Pagy, PostgresSql, S3 Buckets, Heroku</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://drink-journal.herokuapp.com/" target="_blank">View Project</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/chomp.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-          <h2 class="project-title">Choco Chomp</h2>
-          <p>An app based on the famous game theory game "Chomp".</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">Swift, XCode, Mini-Max Algorithm</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://github.com/dvcv/Chomp" target="_blank">View Code</a>
-            <a class = "github-button btn btn-secondary" href="https://itunes.apple.com/us/app/choco-chomp/id1213722025?mt=8" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/chomp.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Choco Chomp</h2>
+        <p>An app based on the famous game theory game "Chomp".</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">Swift, XCode, Mini-Max Algorithm</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://itunes.apple.com/us/app/choco-chomp/id1213722025?mt=8" target="_blank">View Project</a>
+        <a class="github-button btn btn-secondary" href="https://github.com/dvcv/Chomp" target="_blank">View Code</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/powerball.png" class="" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-          <h2 class="project-title">Powerball Simulator</h2>
-          <p>A simple powerball simulator representing many games played over a lifetime.</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">R, Shiny, R-markdown</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://github.com/dvcv/Powerball" target="_blank">View Code</a>
-            <a class = "github-button btn btn-secondary" href="https://dvcv.shinyapps.io/Powerball/" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/powerball.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Powerball Simulator</h2>
+        <p>A simple powerball simulator representing many games played over a lifetime.</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">R, Shiny, R-markdown</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://dvcv.shinyapps.io/Powerball/" target="_blank">View Project</a>
+        <a class="github-button btn btn-secondary" href="https://github.com/dvcv/Powerball" target="_blank">View Code</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/stratified.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-          <h2 class="project-title">Stratified Sampling</h2>
-          <p>Estimating the Number of Protestors in the San Francisco Anti-War Protest.</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">R, Stratified Sampling</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://github.com/dvcv/StratifiedSampling" target="_blank">View Code</a>
-            <a class = "github-button btn btn-secondary" href="https://github.com/dvcv/StratifiedSampling/blob/master/README.rmd" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/stratified.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Stratified Sampling</h2>
+        <p>Estimating the Number of Protestors in the San Francisco Anti-War Protest.</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">R, Stratified Sampling</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://github.com/dvcv/StratifiedSampling/blob/master/Stratafied.pdf" target="_blank">View Project</a>
+        <a class="github-button btn btn-secondary" href="https://github.com/dvcv/StratifiedSampling" target="_blank">View Code</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/text-destroyer.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-          <h2 class="project-title">Text Destroyer</h2>
-          <p>A sticker app to destroy your friends text.</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">XCode</p>
-          <div class="project-buttons">
-            <!-- <a class="github-button btn btn-secondary" href="https://itunes.apple.com/us/app/text-destroyer/id1230029777?mt=8" target="_blank">View Code</a> -->
-            <a class = "github-button btn btn-secondary" href="https://itunes.apple.com/us/app/text-destroyer/id1230029777?mt=8" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/text-destroyer.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Text Destroyer</h2>
+        <p>A sticker app to destroy your friends text.</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">XCode</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://itunes.apple.com/us/app/text-destroyer/id1230029777?mt=8" target="_blank">View Project</a>
+        <a class="github-button btn btn-secondary" href="https://github.com/dvcv/StratifiedSampling" target="_blank">View Code</a>
+        </div>
+    </div>
+    </div>
+</div>
     <!-- project -->
-    <div class="row projects-row">
-      <!-- image -->
-      <div class="col-md-4">
-        <img src="/images/arcade.png" alt="Responsive image" />
-      </div>
-      <div class="col-md-8 right">
-        <div class="projects-content-box">
-          <h2 class="project-title">Bartop-Arcade</h2>
-          <p>A custom built bar-top arcade using a rasberrypi.</p>
-          <h4>What Was Used:</h4>
-          <p class="tech-used">Rasberry PI, Power Tools</p>
-          <div class="project-buttons">
-            <a class="github-button btn btn-secondary" href="https://imgur.com/a/NyjMW" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <img src="/images/arcade.png" alt="Responsive image" />
     </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title">Bartop-Arcade</h2>
+        <p>A custom built bar-top arcade using a rasberrypi.</p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used">Rasberry PI, Power Tools</p>
+        <div class="project-buttons">
+        <a class="github-button btn btn-secondary" href="https://imgur.com/a/NyjMW" target="_blank">View Project</a>
+        </div>
+    </div>
+    </div>
+</div>
   </div>
 </div>
 
@@ -252,7 +276,7 @@ After making it I still had an itch to make something else with the powerful lit
 <div class="resume">
   <h1 class="section-heading">Resume</h1>
   <div class="resume-button">
-    <a class="github-button btn btn-secondary" href="https://resume.creddle.io/embed/cvqamnhwpzn" target="_blank">View</a>
+    <a class="github-button btn btn-secondary" href="https://drive.google.com/file/d/1Jv3zlyaqwzCJ5k1hHRFV4pmK_4dUkStG/view?usp=sharing" target="_blank">View</a>
   </div>
 </div>
 
