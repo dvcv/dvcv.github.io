@@ -7,9 +7,9 @@
     background-size: cover;
 }
 
-#hero2{
+.hero2{
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-image: url('../images/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,44 +41,34 @@
   animation-delay: 12s;
 }
 
-
+  #hero .skills h1 {
+    font-size: 1.5rem;
+  }
 
 @media(min-width:576px){
 
-  #hero .skill p{
-    font-size: 1.25rem;
-  }
-  #skill-view h1{
+  #hero .skills h1 {
     font-size: 1.5rem;
   }
 
 }
 @media(min-width:768px){
 
-  #hero .skill p{
-    font-size: 1.75rem;
-  }
-  #skill-view h1{
+  #hero .skills h1 {
     font-size: 1.75rem;
   }
 
 }
 @media(min-width:992px){
 
-  #hero .skill p{
-    font-size: 2rem;
-  }
-  #skill-view h1{
+  #hero .skills h1 {
     font-size: 2rem;
   }
 
 }
 @media(min-width:1200px){
 
-  #hero .skill p{
-    font-size: 3.5rem;
-  }
-  #skill-view h1{
+  #hero .skills h1 {
     font-size: 3.5rem;
   }
 

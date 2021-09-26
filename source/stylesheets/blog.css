@@ -5,12 +5,7 @@ body {
 
 .blog-card {
   background-color: #f4f4f4;
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100%;
   display:inline-block;
-  width: 100%;
 }
 .quote {
   white-space: pre-wrap; /* css-3 */

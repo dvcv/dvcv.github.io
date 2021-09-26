@@ -1,0 +1,29 @@
+<!-- project -->
+<div class="row projects-row">
+    <!-- image -->
+    <div class="col-md-4">
+    <%= image_tag image, alt: "Responsive image" %>
+    </div>
+    <div class="col-md-8 right">
+    <div class="projects-content-box">
+    <h2 class="project-title"><%= title %></h2>
+        <p><%= desc %></p>
+        <h4>What Was Used:</h4>
+        <p class="tech-used"><%= tools %></p>
+        <div class="project-buttons">
+        <% web_link ||= ''; if web_link.present? %>
+        <a class="github-button btn btn-secondary" href="<%= web_link %>" target="_blank">View Web App</a>
+        <% end %>
+        <% mobile_link ||= ''; if mobile_link.present? %>
+        <a class="github-button btn btn-secondary" href="<%= mobile_link %>" target="_blank">View Mobile App</a>
+        <% end %>
+        <% project_link ||= ''; if project_link.present? %>
+        <a class="github-button btn btn-secondary" href="<%= project_link %>" target="_blank">View Project</a>
+        <% end %>
+        <% code_link ||= ''; if code_link.present? %>
+        <a class="github-button btn btn-secondary" href="<%= code_link %>" target="_blank">View Code</a>
+        <% end %>
+        </div>
+    </div>
+    </div>
+</div>

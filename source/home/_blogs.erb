@@ -9,13 +9,23 @@
       <% end %>
     <% end %>
 
-    <% page_articles.each_with_index do |article, i| %>
-    <div class='blog-card'>
-      <%= article.summary %>
-      <%= link_to 'Read more....', article, class: "github-button btn btn-secondary pull-right" %>
+    <div class="row">
+      <% page_articles.each_with_index do |article, i| %>
+      <div class="col-md-6 ">
+        <div class="p-1 h-100">
+          <div class="blog-card h-100 p-3 d-flex flex-column justify-content-start">
+            <div>
+              <%= article.summary %>
+            </div>
+            <div class="mt-auto">
+              <%= link_to 'Read more....', article, class: "btn btn-secondary pull-right" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
 
-    <% end %>
 
     <% if paginate %>
       <% if next_page %>
