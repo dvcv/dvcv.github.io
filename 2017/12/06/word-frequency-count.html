@@ -153,13 +153,13 @@
 </span></pre></td></tr></tbody></table></code></pre></div>
 <p>This last line of code is a bit heavy but basically it is creating a word frequency count of the cleaned data and graphing into a bar plot. This is the final output.</p>
 
-<p><img src="/images/blogs/blog1/Rplot.png" alt="Rplot" /></p>
+<p><img src="/images/blogs/blog1/Rplot.png" alt="" /></p>
 
 <p>One thing to note is that R did not recognize &ldquo;full&rdquo; and &ldquo;full-stack&rdquo; were the same words. To fix this we can use gsub to replace &ldquo;full&rdquo; with &ldquo;full-stack&rdquo;</p>
 <div class="highlight"><pre class="highlight r"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gsub</span><span class="p">(</span><span class="s2">"(full)$"</span><span class="p">,</span><span class="s2">"full-stack"</span><span class="p">,</span><span class="n">data</span><span class="p">)</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></div>
-<p><img src="/images/blogs/blog1/Rplot02.png" alt="Rplot02" /></p>
+<p><img src="/images/blogs/blog1/Rplot02.png" alt="" /></p>
 
 <p>-dvcv</p>
 

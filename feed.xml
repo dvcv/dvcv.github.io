@@ -168,13 +168,13 @@ Below is an example of what it looks like when turned on.&lt;/p&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This last line of code is a bit heavy but basically it is creating a word frequency count of the cleaned data and graphing into a bar plot. This is the final output.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot.png" alt="Rplot" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot.png" alt="" /&gt;&lt;/p&gt;
 
 &lt;p&gt;One thing to note is that R did not recognize &amp;ldquo;full&amp;rdquo; and &amp;ldquo;full-stack&amp;rdquo; were the same words. To fix this we can use gsub to replace &amp;ldquo;full&amp;rdquo; with &amp;ldquo;full-stack&amp;rdquo;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre class="highlight r"&gt;&lt;code&gt;&lt;table class="rouge-table"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="rouge-gutter gl"&gt;&lt;pre class="lineno"&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class="rouge-code"&gt;&lt;pre&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"(full)$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;"full-stack"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot02.png" alt="Rplot02" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/blogs/blog1/Rplot02.png" alt="" /&gt;&lt;/p&gt;
 
 &lt;p&gt;-dvcv&lt;/p&gt;
 </content>
